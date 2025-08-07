@@ -7,32 +7,6 @@
 
 using namespace std;
 
-int CheckInput(const char* msg)
-{
-	string tmp;
-	int value;
-	while (true)
-	{
-		cout << msg;
-		cin >> tmp;
-		try
-		{
-			value = stoi(tmp);
-			cin.ignore((numeric_limits<unsigned char>::max)(), '\n');
-			return value;
-		}
-		catch (invalid_argument)
-		{
-			cin.clear();
-			cin.ignore(cin.rdbuf()->in_avail());
-		}
-		catch (out_of_range)
-		{
-			cin.ignore((numeric_limits<unsigned char>::max)(), '\n');
-		}
-	}
-}
-
 void ConvertFraction(int numerator, int denominator, int j)
 {
 	cout << "Continued Fraction: (";
@@ -80,7 +54,8 @@ int main()
 {
 	int num, denom;
 	bool tmp;
-	tmp = CheckInput("Enter 0 to convert fractions\nEnter 1 to convert continued fractions\n");
+	cout << "Enter 0 to convert fractions\nEnter 1 to convert continued fractions\n";
+	cin >> tmp;
 	if (tmp)
 	{
 		int j = 0; cout << "Enter through space odds of continued fraction and enter 0 to end input\n";
@@ -110,8 +85,10 @@ int main()
 	}
 	else
 	{
-		num = CheckInput("Enter numerator value\n");
-		denom = CheckInput("Enter denominator value\n");
+		cout << "Enter numerator value\n";
+		cin >> num;
+		cout << "Enter denominator value\n";
+		cin >> denom;
 		int j = 1;
 		ConvertFraction(num, denom, j);
 	}
