@@ -5,11 +5,6 @@ x86/
 ARM/
 ARM64/
 
-[Db]ebug/
-[Rr]elease/
-[Cc]checkout/
-[Bb]uild/
-
 *.vcxproj.user
 *.sqlproj.user
 *.user
@@ -38,6 +33,3 @@ ARM64/
 
 *.bak
 *.tmp
-
-Thumbs.db
-.DS_Store
